@@ -1,8 +1,8 @@
 // rsfp create all thing 
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
+import './ColorBox.scss'
 
 ColorBox.propTypes = {
 
@@ -16,7 +16,7 @@ function getRandomColor() {
 
 function ColorBox() {
     //Initial state chỉ dùng cho lần đầu, những lần sau nó bị bỏ rơi. 
-    //Solution: => use callback function for useState , initial state callback function chi chay mot lan
+    //Solution: => use callback function for useState , initial state callback function chi chay mot lang
     const [color, setColor] = useState(() => {
         const initColor = localStorage.getItem('box_color') || 'deeppink'
         return initColor
@@ -31,10 +31,9 @@ function ColorBox() {
     return (
         <div
             className="color-box"
-            style={{ backgroundColor: color, height: 200, width: 200, margin: "auto" }}    //cach viet inline style trong reactjs : nhan vap 1 obj { camelCase: value }
+            style={{ backgroundColor: color }}    //cach viet inline style trong reactjs : nhan vap 1 obj { camelCase: value }
             onClick={handleBoxClick}
         >
-            COLOR BOX
         </div>
     );
 }
